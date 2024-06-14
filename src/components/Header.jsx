@@ -6,7 +6,7 @@ import { IoGameControllerOutline } from "react-icons/io5";
 import { CgMenuGridR } from "react-icons/cg";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { BiSolidBell } from "react-icons/bi";
-const Header = () => {
+const Header = ({ setTabSelected }) => {
   return (
     //  header container
     <div className="bg-zinc-800 h-16 text-white border-b py-2 px-5 flex items-center justify-between">
@@ -29,7 +29,10 @@ const Header = () => {
       </div>
       {/* middle part of container */}
       <div className="hidden md:flex gap-x-20 items-center text-3xl">
-        <SiGooglehome className="hover:activeClass" />
+        <SiGooglehome
+          className="hover:activeClass"
+          onClick={() => setTabSelected("Home")}
+        />
         <BsPlayBtn className="hover:activeClass" />
         <TbUsersGroup className="hover:activeClass" />
         <IoGameControllerOutline className="hover:activeClass" />
