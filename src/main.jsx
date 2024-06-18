@@ -4,8 +4,7 @@ import App from "./App.jsx";
 import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Posts from "./components/Posts.jsx";
-import CreatePost from "./components/CreatePost.jsx";
-import MainComponent from "./components/MainComponent.jsx";
+import CreatePost, { formSubmission } from "./components/CreatePost.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,17 +13,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <MainComponent />,
-        children: [
-          {
-            path: "/",
-            element: <Posts />,
-          },
-          {
-            path: "/create-post",
-            element: <CreatePost />,
-          },
-        ],
+        element: <Posts />,
+      },
+      {
+        path: "/create-post",
+        element: <CreatePost />,
+        action: formSubmission,
       },
     ],
   },

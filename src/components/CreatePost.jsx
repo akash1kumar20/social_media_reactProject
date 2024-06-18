@@ -3,17 +3,10 @@ import { BsEmojiHeartEyes } from "react-icons/bs";
 import { BsEmojiLaughing } from "react-icons/bs";
 import { BsEmojiGrin } from "react-icons/bs";
 import { HiOutlineEmojiSad } from "react-icons/hi";
+import { Form, redirect } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const CreatePost = () => {
-  function formSubmit(e) {
-    e.preventDefault();
-    toast.success("Post Created!", {
-      position: "top-right",
-      autoClose: 2000,
-      theme: "colored",
-    });
-  }
   return (
     <>
       <ToastContainer />
@@ -35,9 +28,11 @@ const CreatePost = () => {
             </div>
           </div>
         </div>
-        <form className="px-4 mt-2 border border-slate-500 mx-4 rounded-lg py-4">
+        <Form
+          method="POST"
+          className="px-4 mt-2 border border-slate-500 mx-4 rounded-lg py-4"
+        >
           <span className="text-sm text-slate-200">What's on your mind?</span>
-
           <div className="input flex flex-col w-fit static ">
             <label
               htmlFor="purpose"
@@ -61,6 +56,7 @@ const CreatePost = () => {
             </label>
             <input
               type="text"
+              required
               placeholder="Write here..."
               name="subject"
               className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-[25rem] focus:outline-none placeholder:text-white "
@@ -77,16 +73,14 @@ const CreatePost = () => {
               type="text"
               placeholder="Write here..."
               name="message"
+              required
               className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-[25rem] focus:outline-none placeholder:text-white "
             />
           </div>
-          <button
-            className="bg-amber-500 text-center w-[100%] py-2 mt-4 rounded-3xl"
-            onClick={(e) => formSubmit(e)}
-          >
+          <button className="bg-amber-500 text-center w-[100%] py-2 mt-4 rounded-3xl">
             Create Post
           </button>
-        </form>
+        </Form>
         <p className="mx-4 mt-4 text-[15px] text-slate-200">
           Two things are necessary, the development of individuality and the
           participation of the individual in a truly social life.
@@ -100,6 +94,25 @@ const CreatePost = () => {
       </CardComponent>
     </>
   );
+};
+export const formSubmission = async ({ request }) => {
+  //request have all the data of the form
+
+  const data = await request.formData();
+  const formData = {
+    purpose: data.get("purpose"),
+    subject: data.get("subject"),
+    message: data.get("message"),
+  };
+  //use get to catch the data of the form, and inside bracket use name attribute
+
+  const popup = toast.success("Post Created!", {
+    position: "top-right",
+    autoClose: 2000,
+    theme: "colored",
+  });
+
+  return popup;
 };
 
 export default CreatePost;

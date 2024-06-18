@@ -19,7 +19,7 @@ const Posts = () => {
     <CardComponent>
       <h1 className="text-center text-3xl font-semibold ">Posts</h1>
       {fetchingData && <Loader />}
-      {posts.length === 0 && (
+      {!fetchingData && posts.length === 0 && (
         <p className="text-center mt-4">
           No post yet,{" "}
           <a href="/create-post" className="text-blue-400">

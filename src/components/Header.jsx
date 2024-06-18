@@ -6,6 +6,7 @@ import { IoGameControllerOutline } from "react-icons/io5";
 import { CgMenuGridR } from "react-icons/cg";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { BiSolidBell } from "react-icons/bi";
+import { NavLink } from "react-router-dom";
 const Header = () => {
   return (
     //  header container
@@ -29,9 +30,9 @@ const Header = () => {
       </div>
       {/* middle part of container */}
       <div className="hidden md:flex gap-x-20 items-center text-3xl">
-        <a href="/">
+        <NavLink to="/">
           <SiGooglehome className="hover:activeClass" />
-        </a>
+        </NavLink>
         <BsPlayBtn className="hover:activeClass" />
         <TbUsersGroup className="hover:activeClass" />
         <IoGameControllerOutline className="hover:activeClass" />

@@ -5,6 +5,7 @@ import { SiCoinmarketcap } from "react-icons/si";
 import { MdOutlineEventSeat } from "react-icons/md";
 import { CgFeed } from "react-icons/cg";
 import { LuUpload } from "react-icons/lu";
+import { NavLink } from "react-router-dom";
 const SideBarLeft = () => {
   return (
     <div className="hidden max-w-[25%] ps-4 pt-4 text-lg md:flex flex-col gap-y-3">
@@ -15,13 +16,13 @@ const SideBarLeft = () => {
         />
         Mr. Alex
       </p>
-      <a
-        href="/create-post"
+      <NavLink
+        to="/create-post"
         className="flex gap-x-4 items-center hover:activeSideBarOption"
       >
         <LuUpload className="text-2xl" />
         Create Post
-      </a>
+      </NavLink>
       <p className="flex gap-x-4 items-center hover:activeSideBarOption">
         <FaUserFriends className="text-2xl" /> Friends
       </p>
