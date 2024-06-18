@@ -4,6 +4,7 @@ import Loader from "./Loader";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
+
   const [fetchingData, setFetchingData] = useState(false);
   useEffect(() => {
     setFetchingData(true);
@@ -18,6 +19,14 @@ const Posts = () => {
     <CardComponent>
       <h1 className="text-center text-3xl font-semibold ">Posts</h1>
       {fetchingData && <Loader />}
+      {posts.length === 0 && (
+        <p className="text-center mt-4">
+          No post yet,{" "}
+          <a href="/create-post" className="text-blue-400">
+            create post
+          </a>
+        </p>
+      )}
       {!fetchingData &&
         posts.map((post) => (
           <div

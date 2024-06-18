@@ -1,10 +1,9 @@
-import CreatePost from "./CreatePost";
-import Posts from "./Posts";
+import { Outlet } from "react-router-dom";
 
-const MainComponent = ({ tabSelected }) => {
+const MainComponent = () => {
   return (
     <div className="md:w-[50%] w-[100%] pt-4 z-0">
-      {tabSelected === "Create-Post" ? <CreatePost /> : <Posts />}
+      <Outlet />
     </div>
   );
 };

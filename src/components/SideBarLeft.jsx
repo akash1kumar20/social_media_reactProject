@@ -5,7 +5,7 @@ import { SiCoinmarketcap } from "react-icons/si";
 import { MdOutlineEventSeat } from "react-icons/md";
 import { CgFeed } from "react-icons/cg";
 import { LuUpload } from "react-icons/lu";
-const SideBarLeft = ({ setTabSelected }) => {
+const SideBarLeft = () => {
   return (
     <div className="hidden max-w-[25%] ps-4 pt-4 text-lg md:flex flex-col gap-y-3">
       <p className="flex gap-x-4 items-center hover:activeSideBarOption">
@@ -15,13 +15,13 @@ const SideBarLeft = ({ setTabSelected }) => {
         />
         Mr. Alex
       </p>
-      <p
+      <a
+        href="/create-post"
         className="flex gap-x-4 items-center hover:activeSideBarOption"
-        onClick={() => setTabSelected("Create-Post")}
       >
         <LuUpload className="text-2xl" />
         Create Post
-      </p>
+      </a>
       <p className="flex gap-x-4 items-center hover:activeSideBarOption">
         <FaUserFriends className="text-2xl" /> Friends
       </p>

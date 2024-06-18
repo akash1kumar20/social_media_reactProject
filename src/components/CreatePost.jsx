@@ -31,27 +31,55 @@ const CreatePost = () => {
             </div>
             <div>
               <p>Mr. Alex</p>
-              <p className="text-sm">How are you today, Mr. Alex?</p>
+              <p className="text-sm">How are you today ?</p>
             </div>
           </div>
         </div>
-        <form className="px-4 mt-14 border border-slate-500 mx-4 rounded-lg py-4">
+        <form className="px-4 mt-2 border border-slate-500 mx-4 rounded-lg py-4">
           <span className="text-sm text-slate-200">What's on your mind?</span>
-          <input
-            type="text"
-            placeholder="Purpose"
-            className="createPostInputStyling"
-          ></input>
-          <input
-            type="mail"
-            placeholder="Subject"
-            className="createPostInputStyling"
-          ></input>
-          <textarea
-            type="text"
-            placeholder="Message"
-            className="createPostInputStyling"
-          ></textarea>
+
+          <div className="input flex flex-col w-fit static ">
+            <label
+              htmlFor="purpose"
+              className="text-slate-500 text-md font-semibold relative top-2 ml-[7px] px-[3px] bg-[#e8e8e8] w-fit"
+            >
+              Purpose
+            </label>
+            <input
+              type="text"
+              placeholder="Write here..."
+              name="purpose"
+              className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-[25rem] focus:outline-none placeholder:text-white "
+            />
+          </div>
+          <div className="input flex flex-col w-fit static ">
+            <label
+              htmlFor="subject"
+              className="text-slate-500 text-md font-semibold relative top-2 ml-[7px] px-[3px] bg-[#e8e8e8] w-fit"
+            >
+              Subject
+            </label>
+            <input
+              type="text"
+              placeholder="Write here..."
+              name="subject"
+              className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-[25rem] focus:outline-none placeholder:text-white "
+            />
+          </div>
+          <div className="input flex flex-col w-fit static ">
+            <label
+              htmlFor="message"
+              className="text-slate-500 text-md font-semibold relative top-2 ml-[7px] px-[3px] bg-[#e8e8e8] w-fit"
+            >
+              Message
+            </label>
+            <textarea
+              type="text"
+              placeholder="Write here..."
+              name="message"
+              className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-[25rem] focus:outline-none placeholder:text-white "
+            />
+          </div>
           <button
             className="bg-amber-500 text-center w-[100%] py-2 mt-4 rounded-3xl"
             onClick={(e) => formSubmit(e)}
