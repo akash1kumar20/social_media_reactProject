@@ -17,15 +17,15 @@ const router = createBrowserRouter([
         element: <Posts />,
       },
       {
+        path: "/*",
+        element: <UpcomingFeatures />,
+      },
+      {
         path: "/create-post",
         element: <CreatePost />,
         action: formSubmission,
       },
     ],
-  },
-  {
-    path: "/*",
-    element: <UpcomingFeatures />,
   },
 ]);
 

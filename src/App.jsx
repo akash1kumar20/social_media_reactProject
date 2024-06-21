@@ -5,7 +5,7 @@ import SideBarRight from "./components/SideBarRight";
 
 const App = () => {
   return (
-    <div className="bg-zinc-900 text-white min-h-[100vh] ">
+    <div className="bg-zinc-900 text-white min-h-[100vh] z-0">
       <Header />
       <div className="flex">
         <SideBarLeft />
