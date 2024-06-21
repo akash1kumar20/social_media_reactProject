@@ -117,21 +117,19 @@ export const formSubmission = async ({ request }) => {
     console.log(err);
   }
 
-  let popup;
   if (status === 200) {
-    popup = toast.success("Post Created!", {
+    return toast.success("Post Created!", {
       position: "top-right",
       autoClose: 2000,
       theme: "colored",
     });
   } else {
-    popup = toast.error("Post Not Created!", {
+    return toast.error("Post Not Created!", {
       position: "top-right",
       autoClose: 2000,
       theme: "colored",
     });
   }
-  return popup;
 };
 
 export default CreatePost;

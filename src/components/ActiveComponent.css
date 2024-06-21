@@ -1,0 +1,10 @@
+.activeClass {
+  color: white;
+}
+.activeClass.active {
+  background-color: rgb(255, 255, 255);
+  color: rgb(245, 158, 11);
+  cursor: pointer;
+  padding: 4px;
+  border: 2px solid orange;
+}

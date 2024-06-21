@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 @layer base {
-  .activeClass {
-    @apply text-amber-500  border-b-2 border-amber-500 cursor-pointer;
+  .activeClassHover {
+    @apply text-amber-500 border-b-2 border-amber-500 cursor-pointer;
   }
   .activeSideBarOption {
-    @apply bg-amber-500 ps-1 rounded-lg cursor-pointer;
+    @apply bg-amber-500 ps-1 rounded-lg cursor-pointer text-white;
   }
   .createPostInputStyling {
     @apply w-[100%] bg-zinc-600 text-white font-semibold my-1 rounded-lg py-1 ps-2 border border-slate-500;

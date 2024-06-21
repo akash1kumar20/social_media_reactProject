@@ -7,6 +7,7 @@ import { CgMenuGridR } from "react-icons/cg";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { BiSolidBell } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
+import "./ActiveComponent.css";
 const Header = () => {
   return (
     //  header container
@@ -30,16 +31,16 @@ const Header = () => {
       </div>
       {/* middle part of container */}
       <div className="hidden md:flex gap-x-20 items-center text-3xl">
-        <NavLink to="/" className="active:activeClass">
+        <NavLink to="/" className="activeClass hover:activeClassHover">
           <SiGooglehome />
         </NavLink>
-        <NavLink to="/*" className="active:activeClass">
+        <NavLink to="/*" className="activeClass hover:activeClassHover">
           <BsPlayBtn />
         </NavLink>
-        <NavLink to="/*" className="active:activeClass">
+        <NavLink to="/*" className="activeClass hover:activeClassHover">
           <TbUsersGroup />
         </NavLink>
-        <NavLink to="/*" className="active:activeClass">
+        <NavLink to="/*" className="activeClass hover:activeClassHover">
           <IoGameControllerOutline />
         </NavLink>
       </div>
