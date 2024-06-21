@@ -5,6 +5,7 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Posts from "./components/Posts.jsx";
 import CreatePost, { formSubmission } from "./components/CreatePost.jsx";
+import UpcomingFeatures from "./components/UpcomingFeatures.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         action: formSubmission,
       },
     ],
+  },
+  {
+    path: "/*",
+    element: <UpcomingFeatures />,
   },
 ]);
 

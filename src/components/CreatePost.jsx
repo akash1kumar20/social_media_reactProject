@@ -1,9 +1,10 @@
+import axios from "axios";
 import CardComponent from "../Card/CardComponent";
 import { BsEmojiHeartEyes } from "react-icons/bs";
 import { BsEmojiLaughing } from "react-icons/bs";
 import { BsEmojiGrin } from "react-icons/bs";
 import { HiOutlineEmojiSad } from "react-icons/hi";
-import { Form, redirect } from "react-router-dom";
+import { Form } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const CreatePost = () => {
@@ -105,13 +106,31 @@ export const formSubmission = async ({ request }) => {
     message: data.get("message"),
   };
   //use get to catch the data of the form, and inside bracket use name attribute
+  let status;
+  try {
+    let res = await axios.post(
+      "https://socialmediareactproject-default-rtdb.firebaseio.com/posts.json",
+      formData
+    );
+    status = res.status;
+  } catch (err) {
+    console.log(err);
+  }
 
-  const popup = toast.success("Post Created!", {
-    position: "top-right",
-    autoClose: 2000,
-    theme: "colored",
-  });
-
+  let popup;
+  if (status === 200) {
+    popup = toast.success("Post Created!", {
+      position: "top-right",
+      autoClose: 2000,
+      theme: "colored",
+    });
+  } else {
+    popup = toast.error("Post Not Created!", {
+      position: "top-right",
+      autoClose: 2000,
+      theme: "colored",
+    });
+  }
   return popup;
 };
 

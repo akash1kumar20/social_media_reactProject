@@ -30,12 +30,18 @@ const Header = () => {
       </div>
       {/* middle part of container */}
       <div className="hidden md:flex gap-x-20 items-center text-3xl">
-        <NavLink to="/">
-          <SiGooglehome className="hover:activeClass" />
+        <NavLink to="/" className="active:activeClass">
+          <SiGooglehome />
         </NavLink>
-        <BsPlayBtn className="hover:activeClass" />
-        <TbUsersGroup className="hover:activeClass" />
-        <IoGameControllerOutline className="hover:activeClass" />
+        <NavLink to="/*" className="active:activeClass">
+          <BsPlayBtn />
+        </NavLink>
+        <NavLink to="/*" className="active:activeClass">
+          <TbUsersGroup />
+        </NavLink>
+        <NavLink to="/*" className="active:activeClass">
+          <IoGameControllerOutline />
+        </NavLink>
       </div>
       {/* right part of container */}
       <div className="flex items-center text-3xl md:gap-x-4 gap-x-1">

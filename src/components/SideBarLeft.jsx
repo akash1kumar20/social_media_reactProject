@@ -18,42 +18,58 @@ const SideBarLeft = () => {
       </p>
       <NavLink
         to="/create-post"
-        className="flex gap-x-4 items-center hover:activeSideBarOption"
+        className="flex gap-x-4 items-center active:activeClass"
       >
         <LuUpload className="text-2xl" />
         Create Post
       </NavLink>
-      <p className="flex gap-x-4 items-center hover:activeSideBarOption">
-        <FaUserFriends className="text-2xl" /> Friends
-      </p>
-      <p className="flex gap-x-4 items-center hover:activeSideBarOption">
-        <PiClockCountdownBold className="text-2xl" />
-        Memories
-      </p>
-      <p className="flex gap-x-4 items-center hover:activeSideBarOption">
-        <PiTagChevronFill className="-rotate-90 text-2xl" />
-        Saved
-      </p>
-      <p className="flex gap-x-4 items-center hover:activeSideBarOption">
-        <GoVideo className="text-2xl" />
-        Video
-      </p>
-      <p className="flex gap-x-4 items-center hover:activeSideBarOption">
-        <SiCoinmarketcap className="text-2xl" />
-        Marketplace
-      </p>
-      <p className="flex gap-x-4 items-center hover:activeSideBarOption">
-        <CgFeed className="text-2xl" />
-        Feeds
-      </p>
-      <p className="flex gap-x-4 items-center hover:activeSideBarOption">
-        <MdOutlineEventSeat className="text-2xl" />
-        Events
-      </p>
-      <p className="flex gap-x-4 items-center hover:activeSideBarOption">
-        <PiClockCountdownBold className="text-2xl" />
-        History
-      </p>
+      <NavLink to="/*" className="active:activeClass">
+        <p className="flex gap-x-4 items-center hover:activeSideBarOption">
+          <FaUserFriends className="text-2xl" /> Friends
+        </p>
+      </NavLink>
+      <NavLink to="/*" className="active:activeClass">
+        <p className="flex gap-x-4 items-center hover:activeSideBarOption">
+          <PiClockCountdownBold className="text-2xl" />
+          Memories
+        </p>
+      </NavLink>
+      <NavLink to="/*" className="active:activeClass">
+        <p className="flex gap-x-4 items-center hover:activeSideBarOption">
+          <PiTagChevronFill className="-rotate-90 text-2xl" />
+          Saved
+        </p>
+      </NavLink>
+      <NavLink to="/*" className="active:activeClass">
+        <p className="flex gap-x-4 items-center hover:activeSideBarOption">
+          <GoVideo className="text-2xl" />
+          Video
+        </p>
+      </NavLink>
+      <NavLink to="/*" className="active:activeClass">
+        <p className="flex gap-x-4 items-center hover:activeSideBarOption">
+          <SiCoinmarketcap className="text-2xl" />
+          Marketplace
+        </p>
+      </NavLink>
+      <NavLink to="/*" className="active:activeClass">
+        <p className="flex gap-x-4 items-center hover:activeSideBarOption">
+          <CgFeed className="text-2xl" />
+          Feeds
+        </p>
+      </NavLink>
+      <NavLink to="/*" className="active:activeClass">
+        <p className="flex gap-x-4 items-center hover:activeSideBarOption">
+          <MdOutlineEventSeat className="text-2xl" />
+          Events
+        </p>
+      </NavLink>
+      <NavLink to="/*" className="active:activeClass">
+        <p className="flex gap-x-4 items-center hover:activeSideBarOption">
+          <PiClockCountdownBold className="text-2xl" />
+          History
+        </p>
+      </NavLink>
 
       <div className="border-t border-slate-600 pt-6 text-[15px] pr-10">
         <p>
