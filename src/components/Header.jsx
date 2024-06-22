@@ -34,13 +34,13 @@ const Header = () => {
         <NavLink to="/" className="activeClass hover:activeClassHover">
           <SiGooglehome />
         </NavLink>
-        <NavLink to="/*" className="activeClass hover:activeClassHover">
+        <NavLink to="/*/watch" className="activeClass hover:activeClassHover">
           <BsPlayBtn />
         </NavLink>
-        <NavLink to="/*" className="activeClass hover:activeClassHover">
+        <NavLink to="/*/friends" className="activeClass hover:activeClassHover">
           <TbUsersGroup />
         </NavLink>
-        <NavLink to="/*" className="activeClass hover:activeClassHover">
+        <NavLink to="/*/games" className="activeClass hover:activeClassHover">
           <IoGameControllerOutline />
         </NavLink>
       </div>
@@ -49,10 +49,13 @@ const Header = () => {
         <CgMenuGridR className="bg-zinc-700 p-2 rounded-full text-[40px]" />
         <BiSolidMessageRounded className="bg-zinc-700 p-2 rounded-full text-[40px]" />
         <BiSolidBell className="bg-zinc-700 p-2 rounded-full text-[40px]" />
-        <img
-          src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
-          className="h-8 rounded-full"
-        />
+
+        <NavLink to="/login-signup">
+          <img
+            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+            className="h-8 rounded-full"
+          />
+        </NavLink>
       </div>
     </div>
   );

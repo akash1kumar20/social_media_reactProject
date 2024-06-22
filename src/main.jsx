@@ -6,6 +6,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Posts from "./components/Posts.jsx";
 import CreatePost, { formSubmission } from "./components/CreatePost.jsx";
 import UpcomingFeatures from "./components/UpcomingFeatures.jsx";
+import AddAccount from "./account_access/AddAccount.jsx";
+import EditPost from "./components/EditPost.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,8 +19,12 @@ const router = createBrowserRouter([
         element: <Posts />,
       },
       {
-        path: "/*",
+        path: "/*/:otherRoutes",
         element: <UpcomingFeatures />,
+      },
+      {
+        path: "/edit-post",
+        element: <EditPost />,
       },
       {
         path: "/create-post",
@@ -26,6 +32,10 @@ const router = createBrowserRouter([
         action: formSubmission,
       },
     ],
+  },
+  {
+    path: "/login-signup",
+    element: <AddAccount />,
   },
 ]);
 

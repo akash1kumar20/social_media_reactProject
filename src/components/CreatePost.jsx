@@ -11,6 +11,7 @@ const CreatePost = () => {
   return (
     <>
       <ToastContainer />
+
       <CardComponent>
         <h3 className="text-center text-2xl font-semibold border-b pb-4 border-slate-600">
           Create Post
@@ -98,7 +99,6 @@ const CreatePost = () => {
 };
 export const formSubmission = async ({ request }) => {
   //request have all the data of the form
-
   const data = await request.formData();
   const formData = {
     purpose: data.get("purpose"),
@@ -116,18 +116,11 @@ export const formSubmission = async ({ request }) => {
   } catch (err) {
     console.log(err);
   }
-
   if (status === 200) {
     return toast.success("Post Created!", {
       position: "top-right",
-      autoClose: 2000,
       theme: "colored",
-    });
-  } else {
-    return toast.error("Post Not Created!", {
-      position: "top-right",
       autoClose: 2000,
-      theme: "colored",
     });
   }
 };

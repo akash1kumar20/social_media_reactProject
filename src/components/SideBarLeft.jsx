@@ -25,48 +25,60 @@ const SideBarLeft = () => {
         <LuUpload className="text-2xl" />
         Create Post
       </NavLink>
-      <NavLink to="/*" className="activeClass hover:activeSideBarOption">
+      <NavLink
+        to="/*/friends"
+        className="activeClass hover:activeSideBarOption"
+      >
         <p className="flex gap-x-4 items-center ">
           <FaUserFriends className="text-2xl" /> Friends
         </p>
       </NavLink>
-      <NavLink to="/*" className="activeClass hover:activeSideBarOption">
+      <NavLink
+        to="/*/memories"
+        className="activeClass hover:activeSideBarOption"
+      >
         <p className="flex gap-x-4 items-center ">
           <PiClockCountdownBold className="text-2xl" />
           Memories
         </p>
       </NavLink>
-      <NavLink to="/*" className="activeClass hover:activeSideBarOption">
+      <NavLink to="/*/saved" className="activeClass hover:activeSideBarOption">
         <p className="flex gap-x-4 items-center ">
           <PiTagChevronFill className="-rotate-90 text-2xl" />
           Saved
         </p>
       </NavLink>
-      <NavLink to="/*" className="activeClass hover:activeSideBarOption">
+      <NavLink to="/*/video" className="activeClass hover:activeSideBarOption">
         <p className="flex gap-x-4 items-center ">
           <GoVideo className="text-2xl" />
           Video
         </p>
       </NavLink>
-      <NavLink to="/*" className="activeClass hover:activeSideBarOption">
+      <NavLink
+        to="/*/marketplace"
+        className="activeClass hover:activeSideBarOption"
+      >
         <p className="flex gap-x-4 items-center">
           <SiCoinmarketcap className="text-2xl" />
           Marketplace
         </p>
       </NavLink>
-      <NavLink to="/*" className="activeClass hover:activeSideBarOption">
+      <NavLink to="/*/feeds" className="activeClass hover:activeSideBarOption">
         <p className="flex gap-x-4 items-center ">
           <CgFeed className="text-2xl" />
           Feeds
         </p>
       </NavLink>
-      <NavLink to="/*" className="activeClass hover:activeSideBarOption">
+      <NavLink to="/*/events" className="activeClass hover:activeSideBarOption">
         <p className="flex gap-x-4 items-center ">
           <MdOutlineEventSeat className="text-2xl" />
           Events
         </p>
       </NavLink>
-      <NavLink to="/*" className="activeClass hover:activeSideBarOption">
+      <NavLink
+        to="/*/history"
+        className="activeClass hover:activeSideBarOption"
+      >
         <p className="flex gap-x-4 items-center ">
           <PiClockCountdownBold className="text-2xl" />
           History
