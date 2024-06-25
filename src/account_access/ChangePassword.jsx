@@ -1,12 +1,15 @@
 import axios from "axios";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "../store/auth-context";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DummyPage from "../components/DummyPage";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 
 const ChangePassword = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const autCtx = useContext(AuthContext);
   const navigate = useNavigate();
   const newPassword = useRef();
@@ -61,22 +64,36 @@ const ChangePassword = () => {
             Change Password
           </h2>
           <form className="mt-6">
-            <input
-              type="password"
-              ref={newPassword}
-              placeholder="Enter New Password Here..."
-              className="w-[20rem] py-2 ps-2 bg-slate-400 text-white rounded-xl placeholder-white border-4 border-white"
-            />
+            <div className="flex w-[20rem] py-2 px-2 rounded-xl border-4 border-white bg-slate-400 text-white justify-between items-center mx-auto">
+              <input
+                type={showPassword ? "text" : "password"}
+                ref={newPassword}
+                placeholder="Enter New Password Here..."
+                className=" bg-slate-400 text-white  placeholder-white focus:outline-none"
+              />
+              {!showPassword && <LuEye onClick={() => setShowPassword(true)} />}
+              {showPassword && (
+                <LuEyeOff onClick={() => setShowPassword(false)} />
+              )}
+            </div>
             <br />
-            <input
-              type="password"
-              ref={newConfirmPassword}
-              placeholder="Confirm Password..."
-              className="w-[20rem] py-2 ps-2 bg-slate-400 text-white rounded-xl mt-4 placeholder-white border-4 border-white"
-            />
+            <div className="flex w-[20rem] py-2 px-2 rounded-xl border-4 border-white bg-slate-400 text-white justify-between items-center mx-auto">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                ref={newConfirmPassword}
+                placeholder="Confirm Password..."
+                className=" bg-slate-400 text-white  placeholder-white focus:outline-none"
+              />
+              {!showConfirmPassword && (
+                <LuEye onClick={() => setShowConfirmPassword(true)} />
+              )}
+              {showConfirmPassword && (
+                <LuEyeOff onClick={() => setShowConfirmPassword(false)} />
+              )}
+            </div>
             <br />
             <button
-              className="bg-white text-slate-900 py-2 px-8 rounded-2xl mt-4 border-2 border-black"
+              className="bg-white text-slate-900 py-2 px-8 rounded-2xl  border-2 border-black"
               onClick={(event) => changePasswordHandler(event)}
             >
               Change Password

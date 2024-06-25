@@ -4,10 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthContext from "../store/auth-context";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 
 const AddAccount = () => {
   const [isLogin, setIsLogin] = useState();
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const userName = useRef();
   const userMail = useRef();
   const passwordEntered = useRef();
@@ -163,14 +167,22 @@ const AddAccount = () => {
                 >
                   Password
                 </label>
-                <input
-                  type="password"
-                  ref={passwordEntered}
-                  required
-                  placeholder="Write here..."
-                  name="Password"
-                  className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-[25rem] focus:outline-none placeholder:text-white "
-                />
+                <div className="flex justify-between border-slate-500  px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-[25rem] items-center gap-x-2">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    ref={passwordEntered}
+                    required
+                    placeholder="Write here..."
+                    name="Password"
+                    className="bg-[#52525B] w-full input focus:outline-none placeholder:text-white "
+                  />
+                  {!showPassword && (
+                    <LuEye onClick={() => setShowPassword(true)} />
+                  )}
+                  {showPassword && (
+                    <LuEyeOff onClick={() => setShowPassword(false)} />
+                  )}
+                </div>
               </div>
               {isLogin === false && (
                 <div className="input flex flex-col w-fit static ">
@@ -180,14 +192,22 @@ const AddAccount = () => {
                   >
                     Confirm Password
                   </label>
-                  <input
-                    type="password"
-                    required
-                    ref={confirmPassowrdEntered}
-                    placeholder="Write here..."
-                    name="Confirm-Password"
-                    className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-[25rem] focus:outline-none placeholder:text-white "
-                  />
+                  <div className="flex justify-between border-slate-500  px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-[25rem] items-center gap-x-2">
+                    <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      ref={confirmPassowrdEntered}
+                      required
+                      placeholder="Write here..."
+                      name="Password"
+                      className="bg-[#52525B] w-full input focus:outline-none placeholder:text-white "
+                    />
+                    {!showConfirmPassword && (
+                      <LuEye onClick={() => setShowConfirmPassword(true)} />
+                    )}
+                    {showConfirmPassword && (
+                      <LuEyeOff onClick={() => setShowConfirmPassword(false)} />
+                    )}
+                  </div>
                 </div>
               )}
               {isLogin !== false && (
