@@ -12,9 +12,11 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
   const [fetchingData, setFetchingData] = useState(false);
   const navigate = useNavigate();
-
   useEffect(() => {
     setFetchingData(true);
+  }, []);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
         let res = await axios.get(
@@ -32,7 +34,7 @@ const Posts = () => {
     };
 
     fetchData();
-  }, []);
+  });
 
   const handleDeletePost = async (post) => {
     try {
@@ -43,19 +45,21 @@ const Posts = () => {
         toast.error("Post Deleted!", {
           position: "top-right",
           theme: "colored",
-          autoClose: 2000,
+          autoClose: 1000,
         });
-        setTimeout(() => {
-          location.reload();
-        }, 2000);
       }
     } catch (err) {
       toast.warning("Please Try Again!", {
         position: "top-right",
         theme: "dark",
-        autoClose: 2000,
+        autoClose: 1000,
       });
     }
+  };
+
+  const editPostHandler = (post) => {
+    localStorage.setItem("edit-post", JSON.stringify(post));
+    navigate("/edit-post");
   };
 
   return (
@@ -66,8 +70,8 @@ const Posts = () => {
         {fetchingData && <Loader />}
         {!fetchingData && posts.length === 0 && (
           <p className="text-center mt-4">
-            No post yet
-            <a href="/create-post" className="text-blue-400">
+            <span> No post yet</span>
+            <a href="/create-post" className="text-blue-400  ms-2">
               create post
             </a>
           </p>
@@ -97,7 +101,7 @@ const Posts = () => {
                   </button>
                   <button
                     className="text-slate-300 text-lg drop-shadow-lg shadow-black"
-                    onClick={() => navigate("/edit-post")}
+                    onClick={() => editPostHandler(post)}
                   >
                     <FaPenClip />
                   </button>

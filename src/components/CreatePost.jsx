@@ -11,7 +11,6 @@ const CreatePost = () => {
   return (
     <>
       <ToastContainer />
-
       <CardComponent>
         <h3 className="text-center text-2xl font-semibold border-b pb-4 border-slate-600">
           Create Post
@@ -106,23 +105,28 @@ export const formSubmission = async ({ request }) => {
     message: data.get("message"),
   };
   //use get to catch the data of the form, and inside bracket use name attribute
-  let status;
+  let message;
   try {
     let res = await axios.post(
       "https://socialmediareactproject-default-rtdb.firebaseio.com/posts.json",
       formData
     );
-    status = res.status;
+    if (res.status === 200) {
+      message = toast.success("Post Created! Check Posts", {
+        position: "top-right",
+        theme: "colored",
+        autoClose: 2000,
+      });
+    }
   } catch (err) {
-    console.log(err);
-  }
-  if (status === 200) {
-    return toast.success("Post Created!", {
-      position: "top-right",
+    message = toast.error("Network Problem!", {
+      position: "top-righ",
       theme: "colored",
       autoClose: 2000,
     });
   }
+
+  return message;
 };
 
 export default CreatePost;

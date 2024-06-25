@@ -8,6 +8,8 @@ import CreatePost, { formSubmission } from "./components/CreatePost.jsx";
 import UpcomingFeatures from "./components/UpcomingFeatures.jsx";
 import AddAccount from "./account_access/AddAccount.jsx";
 import EditPost from "./components/EditPost.jsx";
+import { AuthContextProvider } from "./store/auth-context.jsx";
+import ChangePassword from "./account_access/ChangePassword.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,10 +39,17 @@ const router = createBrowserRouter([
     path: "/login-signup",
     element: <AddAccount />,
   },
+  {
+    path: "/changePassword",
+    element: <ChangePassword />,
+  },
+  { path: "*", element: <UpcomingFeatures /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <AuthContextProvider>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  </AuthContextProvider>
 );
