@@ -1,22 +1,26 @@
-import { FaSearch } from "react-icons/fa";
+import { FaMoon, FaSearch } from "react-icons/fa";
 import { SiGooglehome } from "react-icons/si";
 import { BsPlayBtn } from "react-icons/bs";
 import { TbUsersGroup } from "react-icons/tb";
-import { IoGameControllerOutline } from "react-icons/io5";
+import { IoGameControllerOutline, IoSunny } from "react-icons/io5";
 import { CgMenuGridR } from "react-icons/cg";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { BiSolidBell } from "react-icons/bi";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./ActiveComponent.css";
 import { useState } from "react";
 
 import EditProfile from "./EditProfile";
-const Header = () => {
+const Header = ({ changeThemeHandler, theme }) => {
   const [editProfile, setEditProfile] = useState(false);
+  const darkTheme = theme;
 
   function profileEditHandler() {
     setEditProfile((editProfile) => !editProfile);
   }
+  const changeTheme = () => {
+    changeThemeHandler();
+  };
   return (
     <>
       {/*  header container */}
@@ -58,6 +62,18 @@ const Header = () => {
         </div>
         {/* right part of container */}
         <div className="flex items-center text-3xl md:gap-x-4 gap-x-1">
+          {darkTheme && (
+            <IoSunny
+              className="bg-zinc-700 p-2 rounded-full text-[40px]"
+              onClick={changeTheme}
+            />
+          )}
+          {!darkTheme && (
+            <FaMoon
+              className="bg-zinc-700 p-2 rounded-full text-[40px]"
+              onClick={changeTheme}
+            />
+          )}
           <CgMenuGridR className="bg-zinc-700 p-2 rounded-full text-[40px]" />
           <BiSolidMessageRounded className="bg-zinc-700 p-2 rounded-full text-[40px]" />
           <BiSolidBell className="bg-zinc-700 p-2 rounded-full text-[40px]" />
