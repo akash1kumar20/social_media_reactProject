@@ -4,10 +4,12 @@ import { BsEmojiHeartEyes } from "react-icons/bs";
 import { BsEmojiLaughing } from "react-icons/bs";
 import { BsEmojiGrin } from "react-icons/bs";
 import { HiOutlineEmojiSad } from "react-icons/hi";
-import { Form } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { ImHome } from "react-icons/im";
 const CreatePost = () => {
+  const navigate = useNavigate();
   return (
     <>
       <ToastContainer />
@@ -34,7 +36,7 @@ const CreatePost = () => {
           className="px-4 mt-2 border border-slate-500 mx-4 rounded-lg py-4"
         >
           <span className="text-sm text-slate-200">What's on your mind?</span>
-          <div className="input flex flex-col w-fit static ">
+          <div className="input flex flex-col static ">
             <label
               htmlFor="purpose"
               className="text-slate-500 text-md font-semibold relative top-2 ml-[7px] px-[3px] bg-[#e8e8e8] w-fit"
@@ -45,10 +47,10 @@ const CreatePost = () => {
               type="text"
               placeholder="Write here..."
               name="purpose"
-              className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-[25rem] focus:outline-none placeholder:text-white "
+              className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-auto focus:outline-none placeholder:text-white "
             />
           </div>
-          <div className="input flex flex-col w-fit static ">
+          <div className="input flex flex-col static ">
             <label
               htmlFor="subject"
               className="text-slate-500 text-md font-semibold relative top-2 ml-[7px] px-[3px] bg-[#e8e8e8] w-fit"
@@ -60,10 +62,10 @@ const CreatePost = () => {
               required
               placeholder="Write here..."
               name="subject"
-              className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-[25rem] focus:outline-none placeholder:text-white "
+              className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-auto focus:outline-none placeholder:text-white "
             />
           </div>
-          <div className="input flex flex-col w-fit static ">
+          <div className="input flex flex-col static ">
             <label
               htmlFor="message"
               className="text-slate-500 text-md font-semibold relative top-2 ml-[7px] px-[3px] bg-[#e8e8e8] w-fit"
@@ -75,13 +77,21 @@ const CreatePost = () => {
               placeholder="Write here..."
               name="message"
               required
-              className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-[25rem] focus:outline-none placeholder:text-white "
+              className="border-slate-500 input px-[10px] py-[11px] text-md bg-[#52525B] border-2 rounded-[5px] w-auto focus:outline-none placeholder:text-white "
             />
           </div>
           <button className="bg-amber-500 text-center w-[100%] py-2 mt-4 rounded-3xl">
             Create Post
           </button>
         </Form>
+
+        <p
+          className="w-[5%] mt-2 mx-auto px-auto text-2xl"
+          onClick={() => navigate("/")}
+        >
+          <ImHome />
+        </p>
+
         <p className="mx-4 mt-4 text-[15px] text-slate-200">
           Two things are necessary, the development of individuality and the
           participation of the individual in a truly social life.

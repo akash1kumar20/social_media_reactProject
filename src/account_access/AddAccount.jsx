@@ -22,7 +22,6 @@ const AddAccount = () => {
 
   async function handlerUserDetails(event) {
     event.preventDefault();
-    let nameEntered;
     let mailEntered;
     let password;
     let confirmPassowrd;

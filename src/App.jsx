@@ -3,18 +3,25 @@ import MainComponent from "./components/MainComponent";
 import SideBarLeft from "./components/SideBarLeft";
 import SideBarRight from "./components/SideBarRight";
 import DummyPage from "./components/DummyPage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const App = () => {
   const userIsLoggedIn = localStorage.getItem("token");
-  const initialTheme = localStorage.getItem("theme");
-  const [theme, setTheme] = useState(initialTheme);
+  const intitalTheme = JSON.parse(localStorage.getItem("socialTheme"));
+  const [theme, setTheme] = useState(intitalTheme);
+  const navigate = useNavigate();
 
   const changeThemeHandler = () => {
     setTheme((theme) => !theme);
-    localStorage.setItem("theme", theme);
   };
+  localStorage.setItem("socialTheme", theme);
 
+  useEffect(() => {
+    if (!userIsLoggedIn) {
+      navigate("/login-signup");
+    }
+  }, []);
   return (
     <>
       {!userIsLoggedIn && <DummyPage />}

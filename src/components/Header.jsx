@@ -2,7 +2,7 @@ import { FaMoon, FaSearch } from "react-icons/fa";
 import { SiGooglehome } from "react-icons/si";
 import { BsPlayBtn } from "react-icons/bs";
 import { TbUsersGroup } from "react-icons/tb";
-import { IoGameControllerOutline, IoSunny } from "react-icons/io5";
+import { IoCreate, IoGameControllerOutline, IoSunny } from "react-icons/io5";
 import { CgMenuGridR } from "react-icons/cg";
 import { BiSolidMessageRounded } from "react-icons/bi";
 import { BiSolidBell } from "react-icons/bi";
@@ -30,6 +30,12 @@ const Header = ({ changeThemeHandler, theme }) => {
           <span className="bg-amber-500 text-3xl px-2 pb-2 rounded-[50%] italic font-serif">
             s
           </span>
+          <NavLink
+            to="/create-post"
+            className="md:hidden items-center gap-2 bg-zinc-700 px-2 py-2 rounded-2xl  font-bold"
+          >
+            <IoCreate />
+          </NavLink>
           <span className="hidden md:flex items-center gap-2 bg-zinc-700 px-2 py-2 rounded-2xl">
             <FaSearch />
             <input
